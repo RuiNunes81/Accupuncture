@@ -7,14 +7,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $user = check_user_credentials($username, $password);
-    
-    print(hash('sha256', $password))
+     
     if ($user) {
         $_SESSION['username'] = $username;
         header('Location: index.php');
         exit;
     } else {
-        $error = 'Invalid credentials.';
+        $error = hash('sha256', $password);#'Invalid credentials.';
     }
 }
 ?>
