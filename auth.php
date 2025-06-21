@@ -7,7 +7,6 @@ function check_user_credentials($username, $password) {
     $stmt = $db->prepare('SELECT * FROM users WHERE username = ?');
     $stmt->execute([$username]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    print(hash('sha256', $password))
     if ($user && $user['password_hash'] === hash('sha256', $password)) {
         return $user;
     }
