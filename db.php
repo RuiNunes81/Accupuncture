@@ -1,7 +1,7 @@
 <?php
 // db.php
 function get_db() {
-    $db = new PDO('sqlite:clinic.db');
+    $db = new PDO('db.be-mons1.bengt.wasmernet.com');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $db;
 }
